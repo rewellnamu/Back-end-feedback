@@ -16,7 +16,13 @@ const reportSchema = new mongoose.Schema({
   status: { type: String, enum: ['Open', 'In Progress', 'Resolved'], default: 'Open' },
   contact: String,
   response: String,
-  createdAt: { type: Date, default: Date.now }
+  createdAt: { type: Date, default: Date.now },
+  comments: [
+    {
+      text: String,
+      createdAt: { type: Date, default: Date.now }
+    }
+  ]
 });
 
 reportSchema.index({ location: '2dsphere' });
