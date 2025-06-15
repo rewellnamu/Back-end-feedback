@@ -3,7 +3,11 @@ const mongoose = require('mongoose');
 const reportSchema = new mongoose.Schema({
   title: { type: String, required: true },
   description: String,
-  category: { type: String, enum: ['Roads', 'Water', 'Security', 'Electricity', 'Other'], required: true },
+  category: { 
+    type: String, 
+    enum: ['Roads', 'Water', 'Security', 'Electricity', 'Health', 'Agriculture', 'Other'], // Added Health and Agriculture
+    required: true 
+  },
   location: {
     type: {
       type: String,
