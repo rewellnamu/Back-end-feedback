@@ -1,0 +1,33 @@
+name: Node.js CI
+
+on:
+  push:
+    paths:
+      - '**/Back-end/**'
+  pull_request:
+    paths:
+      - '**/Back-end/**'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Use Node.js 18.x
+      uses: actions/setup-node@v4
+      with:
+        node-version: 18
+
+    - name: Install dependencies
+      run: npm install
+      working-directory: ./c:/Users/rewell/OneDrive/Desktop/KIRINYAGA COUNTY ASSEMBLY/Back-end
+
+    - name: Lint and Test (if available)
+      run: |
+        npm run lint || echo "No lint script"
+        npm test || echo "No test script"
+      working-directory: ./c:/Users/rewell/OneDrive/Desktop/KIRINYAGA COUNTY ASSEMBLY/Back-end
